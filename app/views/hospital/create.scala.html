@@ -1,0 +1,17 @@
+@(hospitalForm:Form[ViewModels.HospitalForm])
+
+<h1>Create Hospital</h1>
+
+ 
+@helper.form(action = routes.Hospital.upload(), 'enctype -> "multipart/form-data") {
+
+	@helper.inputText(hospitalForm("name"))
+    @helper.inputText(hospitalForm("contact"))
+    
+    @helper.inputFile(hospitalForm("imageFile"))
+    
+
+    <p>
+        <input type="submit">
+    </p>
+}

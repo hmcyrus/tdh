@@ -1,0 +1,36 @@
+@(loginForm:Form[ViewModels.LoginForm])
+
+<h1>Login Page</h1>
+
+@* 
+@helper.form(action = routes.AuthenticationController.validate(), 'enctype -> "multipart/form-data") {
+
+	@helper.inputText(loginForm("userName"))
+    @helper.inputText(loginForm("password"))
+
+    <p>
+        <input type="submit">
+    </p>
+}
+*@
+
+
+
+@main("TDH") {
+    <div class="row col-xs-4 ">
+
+	<form action="/validate" method="POST" enctype="multipart/form-data" class="form-signin">
+		<h2 class="form-signin-heading">Please sign in</h2>	
+		<label for="userName" class="sr-only">User Name</label>
+	    <input type="text" id="userName" name="userName" class="form-control" placeholder="User Name" required autofocus>
+		
+		<label for="password" class="sr-only">Password</label>
+	    <input type="password" id="password" name="password" value="" class="form-control" placeholder="Password" required>
+	   
+	    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+	
+	</form>
+	
+	</div>
+}
+			

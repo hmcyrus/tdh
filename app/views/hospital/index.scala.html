@@ -1,0 +1,18 @@
+@(hospitals: List[models.Hospital])
+
+
+@main("TDH") {
+<table>
+<thead>
+<tr><th>name</th> <th>image</th> </tr>
+</thead>
+<tbody>
+@for(h <- hospitals) {
+<tr>
+  <td>@h.name</td>
+  <td><img src="@routes.Assets.at("images/" + h.imageLocation)" alt="hospital" height="250" width="300" ></td>
+ </tr>
+} 
+</tbody>
+</table>
+}
