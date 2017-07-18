@@ -36,7 +36,8 @@ public class Hospital extends Model {
     
     public String contactNumber;
     
-    public String webpage;
+    public String webpage;   
+    
 
     
     // -- Queries (long id, user.class)

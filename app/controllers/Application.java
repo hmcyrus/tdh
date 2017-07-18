@@ -11,7 +11,7 @@ import org.mindrot.jbcrypt.BCrypt;
 public class Application extends Controller {
 
     public static Result index() {
-    	System.out.println(User.find.all().size() + " --0000");
+    	System.out.println(User.find.all().size() + " --0000");    	
     	/*User a = new User();
     	a.userName = "admin";
     	a.password = BCrypt.hashpw("admin123", BCrypt.gensalt());

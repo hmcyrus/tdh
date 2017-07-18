@@ -3,6 +3,7 @@ package models;
 import play.data.format.Formats;
 import play.data.validation.Constraints;
 import play.db.ebean.Model;
+import sun.io.ByteToCharEUC_CN;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -33,7 +34,12 @@ public class User extends Model {
 
     @Constraints.Required
     @Formats.NonEmpty
-    public String password;    
+    public String password; 
+    
+    
+    // for varbinary mysql datatype
+    @Column(name = "fptemplate", length=498)
+    public byte[] fpTemplate ;
     
 
     /*@Formats.DateTime(pattern = "yyyy-MM-dd HH:mm:ss")

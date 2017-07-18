@@ -8,12 +8,15 @@ import play.data.Form;
 import play.mvc.*;
 import play.mvc.Http.MultipartFormData;
 import play.mvc.Http.MultipartFormData.FilePart;
+
+import java.nio.charset.Charset;
 import java.nio.file.*;
 import java.util.List;
 
 import play.data.Form.*;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 
 import ViewModels.HospitalForm;
 
@@ -58,16 +61,19 @@ public class Hospital extends Controller {
     			try {
     			String fileName = profileImage.getFilename();
     			String contentType = profileImage.getContentType();
-    			File file = profileImage.getFile();
+    			File file = profileImage.getFile(); 
     			//Path path = FileSystems.getDefault().getPath("/tmp/" + fileName);
     			//System.out.println(path.toAbsolutePath());
-    			//Files.write(path, Files.readAllBytes(file.toPath()));
-    			
-    			try {
+    			byte[] hola = FileUtils.readFileToByteArray(file);//; new byte[498];
+    			//hola = FileUtils.readFileToByteArray(file);
+    			String fpForDb = FileUtils.readFileToString(file, Charset.defaultCharset());
+    			System.out.println(hola );
+    			System.out.println(hola.length);
+    			/*try {
     	            FileUtils.moveFile(file, new File("public/images", fileName));
     	        } catch (IOException ioe) {
     	            System.out.println("Problem operating on filesystem");
-    	        }
+    	        }*/
     			
     			return ok("Image uploaded");
     			} catch(Exception e) {

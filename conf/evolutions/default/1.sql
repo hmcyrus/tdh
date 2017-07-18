@@ -22,6 +22,7 @@ create table user (
   email                     varchar(255),
   user_name                 varchar(255),
   password                  varchar(255),
+  fptemplate                varbinary(498),
   constraint uq_user_email unique (email),
   constraint uq_user_user_name unique (user_name),
   constraint pk_user primary key (id))
